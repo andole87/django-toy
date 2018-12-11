@@ -1,0 +1,8 @@
+{% load static %}
+<script src = "{% static 'zz/print.js' %}"></script>
+{% for book in booklist %}
+    <h1> {{ book.book_title }}</h1>
+    <input type="button" value="print" onclick=printPage('{{book.book_pdf.url}}')></br>
+    <img src="{{ book.book_img.url }}" width="200" height="300"/>
+    </br>
+{% endfor %}
