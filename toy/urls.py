@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/', include('polls.urls')),
     path('zz/', include('zz.urls')),
+    path('mozilla/', include('mozilla.urls')),
 ]
