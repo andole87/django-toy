@@ -1,0 +1,14 @@
+
+<form action="{% url 'cb:rpsform' %}" method="post">
+    {% csrf_token %}
+    <label for="book_id">bookid</label>
+    <input type="text" name="book_id" id="book_id">
+    <label for="name">name</label>
+    <input type="text" name="name" id="name">
+    <label for="start">start</label>
+    <input type="text" name="start" id="start">
+    <label for="end">end</label>
+    <input type="text" name="end" id="end">
+    <input type="submit" value="Go">
+
+</form>

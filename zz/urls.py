@@ -8,5 +8,3 @@ urlpatterns = [
     path('my/', views.MyList.as_view(), name="mylist"),
     path('form/', views.rps_new, name="rps_new"),
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

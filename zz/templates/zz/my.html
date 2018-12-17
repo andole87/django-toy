@@ -1,9 +1,10 @@
+{% load static %}
 {% for rps in mylist %}
-    {{ rps.my_name }}
+    <h1>{{ rps.my_name }}</h1>
     <br>
     {{ rps.my_start }}
     <br>
     {{ rps.my_end }}
     <br>
-    {{ rps.my_pdf }}
+    <embed src="{{ rps.my_pdf.url }}">
 {% endfor %}

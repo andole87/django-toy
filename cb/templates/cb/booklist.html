@@ -1,0 +1,6 @@
+{% load static %}
+{% for book in booklist%}
+    <h1>{{book.book_name}}</h1>
+    <img src ="{{book.book_img.url}}" width="400" height="600">
+    <a href="{% url 'rpsform' %}">go rps</a>
+{% endfor %}

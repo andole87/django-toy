@@ -6,5 +6,5 @@ zz/migrations/
 .json
 Pipfile
 *.lock
-.pyc
+*.pyc
 .sqlite3

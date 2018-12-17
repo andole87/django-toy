@@ -1,10 +1,9 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from .models import Book, MyPDF
-from PyPDF2 import PdfFileReader, PdfFileWriter
 from .forms import RPSForm
-import os
-from django.conf import settings
+from . import pdf
+
 
 
 # Create your views here.
@@ -27,18 +26,14 @@ class MyList(generic.ListView):
 def rps_new(request):
     if request.method == "POST":
         form = RPSForm(request.POST)
+        
         if form.is_valid():
             rps = form.save(commit=False)
-            
-
-            rps.save()
+            path = pdf.get_pdf_piece(form.cleaned_data['my_name'],rps.my_origin.book_pdf,form.cleaned_data['my_start']-1,form.cleaned_data['my_end']-1)
+            rps.save(path)
             return redirect('mylist')
     else:
         form = RPSForm
         return render(request, 'zz/form.html', {'form': form})
 
-def make_rps(origin,start,end):
-    pdfpath = os.path.join(settings.BASE_DIR, 'media', 'pdf', origin)
-    inp = PdfFileReader(open(pdfpath,'rb'))
-    out = PdfFileWriter()
-    out.addPage(inp.getPage)
+
